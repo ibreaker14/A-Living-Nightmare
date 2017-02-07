@@ -26,7 +26,7 @@ A Living Nightmare is an Interactive Fiction Game written in Inform 7. You play 
 
 ***USE -*** Using an object can be applied to multiple instances/situations and can mean different things. Try it out on a few items in the game.
 
-***OPEN (something)- *** Opens an object when applicable. You might find some fun stuff.
+***OPEN (something)-*** Opens an object when applicable. You might find some fun stuff.
 
 ***FLUSH (something)-*** Flushing something can be used only in certain places. You'll have to figure out where.
 
