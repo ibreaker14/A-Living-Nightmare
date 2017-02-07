@@ -113,6 +113,8 @@ You should have at least some working knowledge of Interactive Fiction before pl
 
 ***SMELL***
 
+***SMASH***
+
 ***SWITCH***
 
 ***TAKE***
