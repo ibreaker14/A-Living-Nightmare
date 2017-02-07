@@ -1,0 +1,496 @@
+"A Living Nightmare" by Mingtau Li
+
+The story genre is "Adventure". 
+
+The release number is 1. 
+
+The story headline is "A living nightmare". 
+
+The story description is "You woke up on the fourth floor at the  ECS building at CSULB in the middle of the night. It is hard to see. All the lights seem to be turned off. Still disoriented from having just woken up, you stumble into the Linux room.
+	
+The last thing you remembered was you going to bed after a night of gambling and drinking  with some friends at the casino.
+	
+You breathe in and out slowly in the attempt to collect your thoughts. You examine your surroundings. It is dark and cold. You are freezing and it is hard to see. [line break]"
+	
+The story creation year is 2017.
+
+After printing the banner text:
+	say "[line break][line break][story description]".
+	
+
+Section 0 - Terms
+
+Understand the command "use" as something new. Understand "use [something]" as using. Using is an action applying to one thing. 
+Carry out using:
+	say "Using [noun].".
+Understand "use [device]" as switching on.
+
+The carrying capacity of the player is 5.
+	
+Understand the command "flush" as something new. Understand "flush [something]" as flushing. 
+Flushing is an action applying to one thing.
+Carry out flushing:
+	say "You can't do that here[line break]".
+	
+Understand the command "hack" as something new. Hacking is an action applying to one thing. Understand "hack [something]" as hacking.
+Carry out hacking:
+	say "You can't do that here[line break]";
+
+Understand "pry [something] with [something preferably held]" as prying it with.
+Prying it with is an action applying to one thing and one carried thing.
+Check prying it with:
+	say "I don't think you're supposed to do that here[line break]" .
+
+Understand "kick [something]" as attacking.
+Understand "smash [something]" as attacking.
+Understand "headbutt [something]" as attacking.
+
+Understand "attack [something] with [something preferably held]" as attacking it with.
+Attacking it with is an action applying to one thing and one carried thing.
+Understand "smash [something] with [something preferably held]" as attacking it with.
+Understand "break [something] with [something preferably held]" as attacking it with.
+
+Check attacking it with:
+	say "Wow that is a sturdy [the noun][line break]" .
+	
+Understand "play with [something]" as using.
+
+Hacked is a truth state that varies. Hacked is false.
+
+Hackable is a truth state that varies. Hackable is false.
+
+A thing can be readable.  A thing is usually not readable. 
+
+Section 1 - The Linux Room
+
+The linux room is a room. "All the computers in the room seem to be turned off except for one - the master computer."
+The master computer is a container in the linux room. 
+The carrying capacity of the master computer is one.
+
+Rule for printing the name of master computer:
+	say "[printed name of master computer]";
+	omit contents in listing.
+	
+The indefinite article of the master  computer is "the".
+The description of the master computer is "[if flashdrive is in the computer]The computer can now be hacked.[else]There is nothing worthy of note here. " .
+
+Instead of taking the master computer:
+	say "I wouldn't do that if I were you.[line break]".
+	
+A digital clock is an openable container in the Linux room.  
+digital clock is closed.
+The description of the clock is "A small digital alarm clock[if  batteries are in the digital clock] next to the master computer. The time is 2:15AM [else].".
+Understand "clock" as digital clock. 
+batteries are inside the digital clock. 
+The indefinite article of batteries is "some".
+Instead of using batteries:
+	say "You have to put the batteries into something in order to use it[line break]";
+
+Instead of inserting something not readable into master computer: 
+	say "You can't put that in there";
+	stop the action.
+
+After inserting flashdrive into master computer:
+	say "You have inserted the hack drive.";
+	say "[description of the master computer]";
+	now hackable is true;
+
+Instead of hacking the master computer:
+	if hackable is true:
+		if hacked is false:
+			now the command prompt is "Solve the equation to complete hack: ((36*(2704/16)^(1/2))*(117/3))/3) >";
+			continue the action;
+		otherwise:
+			say "Computer has already been hacked.";
+	otherwise: 
+		say "It doesn't seem like you can hack it.".
+
+After reading a command when the command prompt is  "Solve the equation to complete hack: ((36*(2704/16)^(1/2))*(117/3))/3) >":
+	if the player's command matches "6084":
+		now hacked is true;
+		say "computer successfully hacked. You have uncovered a hidden file with the message with the message: [quotation mark]1124[quotation mark].";
+		now the command prompt is ">";
+		say line break;
+		say run paragraph on;
+		reject the player's command;
+	otherwise:
+		say "> hack failed <[line break]";
+		now the command prompt is ">";
+		say line break;
+		say run paragraph on;
+		reject the player's command.
+		
+Instead of examining computer when hacked is true:
+	say "You have uncovered a hidden file with the message with the message: [quotation mark]1124[quotation mark].".
+
+Instead of using digital clock:
+	if batteries are in the clock:
+		say "The time is 2:15AM";
+	otherwise:
+		say "I don't think we can use this anymore. As a paperweight, maybe".
+
+Rule for printing the name of clock:
+	say "[printed name of clock]";
+		omit contents in listing.
+
+Section 2 - The Corridor
+
+The corridor is a room. 
+The corridor is north of the linux room.
+The description of the corridor is "[if player is not carrying flashlight]You kicked something that's on the floor. It seems to be a small object[otherwise if flashlight is switched on] The corridor is a long hallway that connects rooms together[end if].".
+
+A flashlight is a device in the corridor. 
+It is privately-named. 
+The printed name is "[if player is not carrying flashlight]small object[otherwise]flashlight[end if]".
+The description of flashlight is "It seems to be a small flashlight.". 
+Flashlight is not marked for listing. 
+
+Understand "small object" as flashlight.
+
+Understand "flashlight" as flashlight.
+
+Instead of going north in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going northeast in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going northwest in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going east in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going west in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going southeast in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+
+Instead of going southwest in the corridor when flashlight is switched off:
+	say  "You can't go that way. You can't see!".
+	
+Before switching on flashlight:
+	if player is not carrying flashlight: 
+		say "you can't use something you don't have.";
+		stop the action;
+	if player is not carrying batteries:
+		say "it seems the flashlight is missing some batteries.";
+		stop the action.
+	
+Before dropping batteries:
+	if player is carrying flashlight:
+		say "Dang it! Dropped the batteries. Now the flashlight won't work.";
+		now flashlight is switched off.
+
+Rule for listing nondescript items of the corridor:
+	if flashlight is not switched on: 
+		say "It's too dark. You can't see anything.";
+		stop the action.
+		
+Instead of inserting something that is not batteries into clock:
+	say "Well that doesn't belong there.".
+	
+After inserting batteries into something:
+	now flashlight is switched off.
+	
+Instead of inserting batteries into flashlight:
+	say "batteries have already been inserted".
+	
+Instead of dropping batteries in the Linux room:
+	say "I don't feel like dropping precious batteries here".
+	
+Instead of dropping flashlight in the Linux room:
+	say "I dont' feel like dropping the flashlight in here."
+
+Before of going to the corridor when flashlight is not switched on or player is not carrying batteries:
+	if player is in Linux room:
+		continue the action;
+	otherwise: 
+		if flashlight is switched off:
+			say "it's so dark";
+		if player is not carrying batteries and player is not carrying flashlight:
+			say "I seem to have misplaced something.";
+		stop the action.
+
+Instead of dropping flashlight:
+	now flashlight is switched off;
+	continue the action.
+
+After switching on flashlight in the corridor for the first time:
+	say "[description of the corridor][line break]";
+	say "But I don't see a staircase though. That's weird. This isn't the school I know. What's happening?".
+	
+Section 3 - Anthony Giacalone's Room
+
+Anthony Giacalone's office is northwest of the corridor.
+
+The drawer is an openable container. 
+The drawer is in Anthony Giacalone's office. 
+The drawer is closed.
+
+A rope is in the drawer.
+
+A crowbar is in the safe. Crowbar unlocks elevator.
+
+A Justin Beiber cd is in the drawer. 
+The description of the Justin Beiber is "Justin Beiber's Never Say Never album.".
+Understand "cd" as Justin Beiber cd.
+
+A flashdrive is in the drawer.
+flashdrive is readable.
+Understand "thumb drive","thumbdrive","memory stick","drive", and "usb" as flashdrive.
+
+A pen is in the drawer. The description of pen is "This pen is Royal Blue.".
+
+The safe is a locked openable container in Anthony Giacalone's office. 
+The description of the safe is "A safe that is opened using a passcode".
+Understand "use [safe]" as examining.
+Understand "unlock [safe]" as examining. 
+
+Instead of using Justin Beiber cd:
+	say "You use the cd to scratch an itch.".
+	
+Instead of using rope:
+	say "You play jump rope with yourself.".
+	
+After examining the safe:
+	if safe is locked:
+		now the command prompt is "Please enter the required password. >";
+		continue the action.
+
+After reading a command when the command prompt is "Please enter the required password. >":
+	if the player's command matches "1124":
+		now the safe is unlocked;
+		say "safe is now unlocked.";
+		now the command prompt is ">";
+		say line break;
+		say run paragraph on;
+		reject the player's command;
+	otherwise:
+		say "> invalid password <[line break]";
+		now the command prompt is ">";
+		say line break;
+		say run paragraph on;
+		reject the player's command.
+
+Rule for printing the name of safe:
+	say "[printed name of safe]";
+		omit contents in listing.
+
+Before opening safe:
+	if safe is locked:
+		say "You need the password to open this safe.".
+		
+After opening safe:
+	say "There is nothing in the safe.... Just kidding. There is crowbar in the safe".
+
+
+Instead of using flashdrive:
+	if player is in the linux room:
+		say "Try putting the flashdrive into the computer.";
+	otherwise:
+		say "You can't use that here.".
+
+Section 4 - Windows Room
+
+The windows room is west of the corridor.
+[Nothing to do here. Have fun wasting your time here].
+
+Section 5 - Lecture Room
+
+The lecture room is southwest of the corridor. 
+
+A trashcan is a container in the lecture room.  
+Rule for printing the name of trashcan:
+	say "[printed name of trashcan]";
+	omit contents in listing.
+	
+Instead of using trashcan:
+	say "You have nothing else to throw away, except maybe your hopes and dreams.".
+	
+A frisbee is in the lecture room. 	
+Instead of using frisbee:
+	say "Wheeee![line break]".
+	
+A banana  is in the lecture room. 
+The description of banana peel is "A soiled banana peel probably left over by a student.".
+Understand "peel" as banana peel.
+
+Instead of using banana peel:
+	say "You slipped on the peel, you klutz.".
+	
+A whiteboard is an object that is fixed in place in the lecture room.
+Understand "board" as whiteboard.
+The description of whiteboard is "There seems to be a message on the whiteboard. It says: [quotation mark]Edward.....[quotation mark]. ".
+
+A stapler is in the lecture room. 
+The description of the stapler is "Just an ordinary stapler.".
+
+Section 6 - Bathroom
+
+The bathroom is southeast of the corridor.
+
+toilets is an enterable container that is fixed in place in the bathroom.
+The indefinite article of toilets is "some".
+Understand "toilet" as toilets.
+
+sinks are objects that is fixed in place in the bathroom.
+The indefinite article of sinks is "some".
+Understand "sink" as sinks.
+
+urinals are objects that is fixed in place in the bathroom.
+The indefinite article of urinals is "some".
+Understand "urinal" as urinals.
+
+Instead of using urinals:
+	say "Wheeee!!!![line break]".
+
+Instead of using sinks:
+	say "There doesn't seem to be any water.";
+
+Rule for printing the name of toilets:
+	say "[printed name of toilets]";
+		omit contents in listing.
+
+Instead of entering toilets:
+	say "You sit on a toilet.";
+	move the player to toilets, without printing a room description.
+	
+Instead of going in toilets:
+	say "You sit on a toilet.";
+	move the player to toilets, without printing a room description.
+	
+Instead of switching on toilets: 
+	say "You flushed the toilet.".
+	
+Instead of using toilets:
+	if player is not in toilets:
+		say "Hold on, buddy! At least get into a toilet first.";
+		stop the action;
+	otherwise:
+		say "BRRUUIPPFFFFFTTTT![line break]".
+		
+Instead of opening toilets: 
+	say "Someone left a huge masterpiece in here.";
+	continue the action.
+	
+Instead of closing toilets:
+	say "You don't wanna touch that.".
+	
+Instead of flushing toilets:
+	say "Dang it! There's no water.".
+	
+Instead of examining toilets:
+	say "It's just a toilet.".
+
+Instead of smelling bathroom:
+	say "You gag from the horrendous smell.".
+	
+Instead of smelling toilets:
+	say "There must be something seriously wrong with you.".
+	
+Understand "take a shit in [toilets]", "shit [toilets]","poop in [toilets]","take a dump in [toilets]", and "drop a deuce in [toilets]" as using.
+
+Understand "pee in [urinals]" and "take a piss [urinals]" as using.
+
+Understand "get out", "get off", and "out" as exiting.
+
+Section 7 - Elevator
+
+The elevator is a locked door. 
+The elevator is east of the corridor. 
+
+The shaft is a room. 
+The description of the shaft is "knees weak, arms are heavy.".
+The shaft is east of the elevator.
+
+Instead of using elevator:
+	say "There doesn't seem to be any power.".
+
+Instead of examining the elevator:
+	say "You see an [other side of the elevator] with a sheer drop of I-don't-know-how-many-feet-but-it-looks-super-high.".
+	
+Instead of searching the elevator:
+	say "You see an [other side of the elevator] with a sheer drop of I-don't-know-how-many-feet-but-it-looks-super-high.".
+
+After unlocking elevator with crowbar:
+	now elevator is open;
+	say "[description of shaft]";
+	say "You see an [other side of the elevator] with a sheer drop of I-don't-know-how-many-feet-but-it-looks-super-high.".
+	
+Instead of going to shaft when elevator is open:
+	say "Woah! You almost ran into the elevator shaft. Are you sure? >";
+	if player consents:
+		continue the action;
+	otherwise:
+		say "Whew! that was close.";
+		stop the action.
+	
+Instead of prying the locked elevator with crowbar:
+	say "You pried the elevator door open.";
+	say "[description of shaft]";
+	say "You see an [other side of the elevator] with a sheer drop of I-don't-know-how-many-feet-but-it-looks-super-high.";
+	now elevator is unlocked;
+	now elevator is open.
+	
+Section 8 - Database Room
+
+The database room is northeast of the corridor.
+A book is in the database room. 
+The description of book is "There seems to be a page missing.".
+
+Instead of using book:
+	say "[description of book]";
+
+Section 9 - The Window
+
+The window is a locked door. It is north of the corridor. 
+The schoolyard is north of the window. The description of the window is "A glass window.".
+
+Instead of using the window:
+	say "You see a [the other side of the window] on the other side.";
+
+Instead of searching the window:
+	say "There seems to be [the other side of the window] on the other side.".
+	
+Instead of opening the window when window is locked:
+	say "Window can't be opened. This is one tough cookie.".
+	
+Instead of going through the closed window: 
+	say "The window is shut.".
+	
+Instead of attacking closed window:
+	say "You cracked the window! What is wrong with you?[line break]".
+	
+Instead of attacking closed window for the second time:
+	say "Uh-oh you broke the window. Be careful! There's at least a 200ft drop onto the [the other side of the window] outside.";
+	now window is unlocked;
+	now window is open.
+
+Instead of attacking closed window with crowbar:
+	now window is unlocked;
+	now window is open;
+	say "You broke the window.";
+	say " Be careful! There's at least a 200ft drop onto the [the other side of the window] outside.".
+	
+Instead of prying closed window with crowbar:
+	now window is unlocked;
+	now window is open;
+	say "The whole window frame breaks away from the wall and falls onto the [the other side of the window] outside. Watch your step! There's at least a 200ft drop.".
+	
+Instead of going to schoolyard when window is open:
+	say "Woah! You almost fell out of the window. Are you sure? >";
+	if player consents:
+		continue the action;
+	otherwise:
+		say "Whew! that was close";
+		stop the action.
+		
+Section 10 - End Game
+
+After going to the schoolyard:
+	end the story saying "[line break]You fell 255 feet to your death, your scattered body parts splatter all over the schoolyard and your thick, dark blood  is painted onto the walls of the building.[line break][line break]You then wake up and realize you were dreaming all along. [line break]CONGRATULATIONS! YOU WON!  [line break]".
+	
+After going to the shaft:
+	end the story saying "[line break]You fell  to your death, There is a loud, echoing splat as your body hits the bottom of the elevator shaft. There is a sickening crunch as your bones break into a thousand pieces that penetrate your skin. You become an urban legend as the ghost who lives in the elevator. [line break][line break]You then wake up and realize you were dreaming all along. [line break]CONGRATULATIONS! YOU WON! [line break]".
