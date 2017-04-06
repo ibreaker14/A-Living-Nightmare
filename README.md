@@ -1,9 +1,5 @@
-# CECS 424 Sp2017 - Assignment #1
-
-## A Living Nightmare
-An Interactive Fiction Game by Mingtau Li, 
-011110539
-
+# A Living Nightmare
+An Interactive Fiction Game written in Inform7 by Mingtau Li, 
 
 A Living Nightmare is an Interactive Fiction Game written in Inform 7. You play as a student who wakes up in the middle of the night in one of the top floors in CSULB ECS building. The lights are off and you are alone. Your goal is to navigate through the dark hallways of the ECS building, solve puzzles, and escape the bulding to beat the game.
 
